@@ -163,6 +163,8 @@ function init() {
     if (action && changes[action]) {
       var aN = changes[action].node;
       xpos = Math.max(xpos,aN.offsetLeft+aN.offsetWidth+10);
+      var bb = changes[action].branch;
+      branches[bb].x = Math.max(branches[bb].x,xpos+40);
     }
 
     var n = addNode(xpos,branches[change.branch].y,key);
