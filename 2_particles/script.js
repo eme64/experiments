@@ -2,16 +2,41 @@ screenX = window.innerWidth-20
 screenY = window.innerHeight-20
 
 particles = [];
+numTypes = 10;
+poles = new Array(numTypes)
+colors = new Array(numTypes)
+for(var i = 0; i < numTypes; i++) {
+  poles[i] = new Array(numTypes)
+  colors[i] = "hsl(" + (360.0 * i / numTypes) + ",100%,50%)"
+  for(var j = 0; j < numTypes; j++){
+    poles[i][j] = (i == j) ? -1 : Math.random() - 0.5
+  }
+}
+scale = 50
+gForce = 0.01
 
 function createParticles() {
   for(let i = 0; i < 1000; i++) {
-    particles.push({x:Math.random()*screenX, y:Math.random()*screenY});
+    particles.push({x:Math.random()*screenX, y:Math.random()*screenY, t:Math.floor(Math.random() * numTypes)});
   }
 }
 
 function myMod(x, m) {
   let y = x % m
   return (y < 0) ? y + m : y
+}
+
+function force(d, pole) {
+  if(d > 0) {
+    if(d < scale) {
+      return gForce * (scale - d)
+    } else if(d < 3*scale) {
+      return gForce * (d - scale) * 0.5 * pole
+    } else if(d < 5*scale) {
+      return gForce * (5*scale - d) * 0.5* pole
+    }
+  }
+  return 0
 }
 
 function computeForce() {
@@ -26,9 +51,10 @@ function computeForce() {
       if (dx > 0.5 * screenX) { dx -= screenX }
       if (dy > 0.5 * screenY) { dy -= screenY }
       const d = Math.sqrt(dx*dx + dy*dy)
-      if(d > 0 && d < 200) {
-        p1.dx += dx / d * (200-d) * 0.01
-        p1.dy += dy / d * (200-d) * 0.01
+      if(d > 0 && d < 300) {
+        let f = force(d, poles[p1.t][p2.t]) / d
+        p1.dx += dx * f
+        p1.dy += dy * f
       }
     }
   }
@@ -65,7 +91,7 @@ function updateCanvas() {
     let p = particles[i]
     ctx.beginPath();
     ctx.arc(p.x, p.y, 2, 0, 2 * Math.PI, false);
-    ctx.fillStyle = "#00ff00";
+    ctx.fillStyle = colors[p.t];
     ctx.fill();
   }
 }
