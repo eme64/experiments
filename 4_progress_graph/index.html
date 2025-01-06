@@ -118,10 +118,11 @@ TODO
 
     issues = {};
 
-    var bug_open = {dot: "#ff0000", background: "#ff9999", highlight: "#ff8888"}
-    var bug_done = {dot: "#ff9999", background: "#ffeeee", highlight: "#ffdddd"}
-    var rfe_open = {dot: "#0000ff", background: "#9999ff", highlight: "#8888ff"}
-    var rfe_done = {dot: "#9999ff", background: "#eeeeff", highlight: "#ddddff"}
+    var bug_open   = {dot: "#ff0000", background: "#ff9999", highlight: "#ff8888"}
+    var bug_done   = {dot: "#ff9999", background: "#ffeeee", highlight: "#ffdddd"}
+    var rfe_open   = {dot: "#999999", background: "#cccccc", highlight: "#cccccc"}
+    var rfe_review = {dot: "#0000ff", background: "#bbbbff", highlight: "#aaaaff"}
+    var rfe_done   = {dot: "#9999ff", background: "#eeeeff", highlight: "#ddddff"}
 
     issues["8346993"] = {desc:"Refactor VectorNode::make",
                          assigned:"Emanuel",
@@ -142,28 +143,47 @@ TODO
     // -------------------------- General Bugs
     x = 20;
     y = 120;
-    issues["8316679"] = {desc:"wrong result - load/store order",
+    issues["8298935"] = {desc:"WR: independence bug",
+                         assigned:"Emanuel",
+                         jdk: 21,
+                         pr: "https://github.com/openjdk/jdk/pull/12350",
+                         x: x, y: y, color: bug_done, radius: 7,
+                         edges: []};
+    y += 25;
+    issues["8304720"] = {desc:"WR: schedule using dependency-graph",
+                         assigned:"Emanuel",
+                         jdk: 21,
+                         pr: "https://github.com/openjdk/jdk/pull/13354",
+                         x: x, y: y, color: bug_done, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8304042"] = {desc:"WR: packs can introduce cycles",
+                         assigned:"Emanuel",
+                         jdk: 21,
+                         pr: "https://github.com/openjdk/jdk/pull/13078",
+                         x: x, y: y, color: bug_done, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8316679"] = {desc:"WR: load/store order",
                          assigned:"Emanuel",
                          jdk: 22,
                          pr: "https://github.com/openjdk/jdk/pull/15864",
                          x: x, y: y, color: bug_done, radius: 3,
                          edges: []};
     y += 25;
-    issues["8316594"] = {desc:"wrong result - load/store order",
+    issues["8316594"] = {desc:"WR: load/store order",
                          assigned:"Emanuel",
                          jdk: 22,
                          pr: "https://github.com/openjdk/jdk/pull/15866",
                          x: x, y: y, color: bug_done, radius: 3,
-                         edges: [{name: "8316679", color: "black"}]};
+                         edges: []};
     y += 25;
     issues["8310190"] = {desc:"AlignVector broken",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/14785",
                          x: x, y: y, color: bug_done, radius: 7,
-                         edges: [{name: "8316594", color: "black"}]};
-
-
+                         edges: []};
     y += 25;
     issues["8332905"] = {desc:"bad AD with RotateRightV",
                          assigned:"Emanuel",
@@ -172,13 +192,80 @@ TODO
                          x: x, y: y, color: bug_done, radius: 3,
                          edges: []};
     y += 25;
-    issues["8330819"] = {desc:"bad dominance - CastLL after pre-loop",
+    issues["8330819"] = {desc:"bad dominance: CastLL after pre-loop",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/pull/18892",
                          x: x, y: y, color: bug_done, radius: 3,
                          edges: []};
     y += 25;
+    issues["8340010"] = {desc:"Fix tests after Lilliput",
+                         assigned:"Emanuel",
+                         jdk: 0,
+                         pr: "https://github.com/openjdk/jdk/pull/22199",
+                         x: x, y: y, color: bug_done, radius: 3,
+                         edges: []};
+    y += 25;
+    issues["8325155"] = {desc:"Remove alignment-boundaries",
+                         assigned:"Emanuel",
+                         jdk: 24,
+                         pr: "https://github.com/openjdk/jdk/pull/18822",
+                         x: x, y: y, color: rfe_done, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8331764"] = {desc:"Refactor _align_to_ref",
+                         assigned:"Emanuel",
+                         jdk: 0,
+                         pr: "https://github.com/openjdk/jdk/pull/19115",
+                         x: x+20, y: y, color: rfe_done, radius: 3,
+                         edges: [{name: "8325155", color: "blue"}]};
+    y += 25;
+    issues["8333876"] = {desc:"assert replaced with check",
+                         assigned:"Emanuel",
+                         jdk: 24,
+                         pr: "https://github.com/openjdk/jdk/pull/19736",
+                         x: x+20, y: y, color: bug_done, radius: 3,
+                         edges: [{name: "8325155", color: "red"}]};
+    y += 25;
+    issues["8334228"] = {desc:"assert: fix sorting",
+                         assigned:"Emanuel",
+                         jdk: 0,
+                         pr: "https://github.com/openjdk/jdk/pull/19696",
+                         x: x+20, y: y, color: bug_done, radius: 5,
+                         edges: [{name: "8325155", color: "red"}]};
+    y += 25;
+    issues["8334431"] = {desc:"perf-regr: store-to-load-fwd failure",
+                         assigned:"Emanuel",
+                         jdk: 0,
+                         pr: "https://github.com/openjdk/jdk/pull/21521",
+                         x: x+20, y: y, color: bug_done, radius: 5,
+                         edges: [{name: "8325155", color: "red"}]};
+    y += 25;
+    issues["8335006"] = {desc:"JMH VectorStoreToLoadForwarding.java",
+                         assigned:"Emanuel",
+                         jdk: 24,
+                         pr: "https://github.com/openjdk/jdk/pull/",
+                         x: x+40, y: y, color: rfe_done, radius: 5,
+                         edges: [{name: "8334431", color: "blue"}]};
+    y += 25;
+    issues["8334083"] = {desc:"test bug with AlignVector",
+                         assigned:"Emanuel",
+                         jdk: 24,
+                         pr: "https://github.com/openjdk/jdk/pull/19801",
+                         x: x+20, y: y, color: bug_done, radius: 3,
+                         edges: [{name: "8325155", color: "red"}]};
+    y += 25;
+
+
+
+    //issues[""] = {desc:"",
+    //                     assigned:"Emanuel",
+    //                     jdk: 0,
+    //                     pr: "https://github.com/openjdk/jdk/pull/",
+    //                     x: x, y: y, color: bug_done, radius: 5,
+    //                     edges: []};
+
+
 
 
     //issues[""] = {desc:"",
@@ -199,29 +286,56 @@ TODO
                          x: x, y: y, color: rfe_done, radius: 5,
                          edges: []};
     y += 25;
-    issues["8314612"] = {desc:"wrong result - unordered reductions",
+    issues["8314612"] = {desc:"WR: unordered reductions",
                          assigned:"Emanuel",
                          jdk: 22,
                          pr: "https://github.com/openjdk/jdk/pull/15654",
                          x: x+20, y: y, color: bug_done, radius: 5,
                          edges: [{name: "8302652", color: "red"}]};
     y += 25;
+    issues["8310130"] = {desc:"unordered reduction: bad assert",
+                         assigned:"Emanuel",
+                         jdk: 22,
+                         pr: "https://github.com/openjdk/jdk/pull/14494",
+                         x: x+20, y: y, color: bug_done, radius: 3,
+                         edges: [{name: "8302652", color: "red"}]};
+    y += 25;
+    issues["8307513"] = {desc:"Intrinsify Math.min/max(long, long)",
+                         assigned:"Galder",
+                         jdk: 25,
+                         pr: "https://github.com/openjdk/jdk/pull/20098",
+                         x: x, y: y, color: rfe_review, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8345245"] = {desc:"Reassociate reductions",
+                         assigned:"Emanuel",
+                         jdk: 0,
+                         pr: "",
+                         x: x, y: y, color: rfe_open, radius: 5,
+                         edges: []};
+    y += 25;
+
 
 
     // -------------------------- CMove
     x = 950;
     y = 120;
 
-    issues["8306302"] = {desc:"assert with CMove - fix and refactor",
+    issues["8306302"] = {desc:"assert with CMove: fix and refactor",
                          assigned:"Emanuel",
                          jdk: 21,
                          pr: "https://github.com/openjdk/jdk/pull/13493",
                          x: x, y: y, color: bug_done, radius: 5,
                          edges: []};
     y += 25;
-
-
-    issues["8313720"] = {desc:"wrong result - CMove",
+    issues["8309268"] = {desc:"assert after JDK-8306302",
+                         assigned:"Emanuel",
+                         jdk: 21,
+                         pr: "https://github.com/openjdk/jdk/pull/14268",
+                         x: x+20, y: y, color: bug_done, radius: 3,
+                         edges: [{name: "8306302", color: "red"}]};
+    y += 25;
+    issues["8313720"] = {desc:"WR: CMove",
                          assigned:"Emanuel",
                          jdk: 22,
                          pr: "https://github.com/openjdk/jdk/pull/15274",
