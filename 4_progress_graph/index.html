@@ -60,7 +60,7 @@ TODO
       }
 
       ctx.beginPath();
-      ctx.arc(issue.x - 10, issue.y + 10, 5, 0, 2 * Math.PI);
+      ctx.arc(issue.x - 10, issue.y + 10, issue.radius, 0, 2 * Math.PI);
       ctx.fillStyle = "red";
       ctx.fill();
       ctx.stroke();
@@ -119,11 +119,11 @@ TODO
 
     issues["8346993"] = {desc:"Refactor VectorNode::make",
                          pr: "https://github.com/openjdk/jdk/pull/22917",
-                         x: 20, y: 10, type: "review",
+                         x: 20, y: 10, color: "blue", radius: 3,
                          edges: []};
     issues["8343685"] = {desc:"Revactor VPointer with MemPointer",
                          pr: "https://github.com/openjdk/jdk/pull/21926",
-                         x: 200, y: 50, type: "open",
+                         x: 200, y: 50, color: "red", radius: 7,
                          edges: [{name: "8346993", color: "black"}]};
 
     for (const [name, issue] of Object.entries(issues)) {
