@@ -33,16 +33,20 @@ TODO
     ctx.fillStyle = "#eeeeee";
     ctx.fill();
 
-    console.log("update");
-    for (issue of issues) {
+    for (const [name, issue] of Object.entries(issues)) {
       var div = issue.div;
 
       if (overFocusId==div.id) {
-        div.style.border = "solid #000000";
-        console.log("over " + div.id);
+        div.style.border = "solid #000000 1px";
       } else {
         div.style.border = "";
       }
+
+      ctx.beginPath();
+      ctx.arc(issue.x - 10, issue.y + 10, 5, 0, 2 * Math.PI);
+      ctx.fillStyle = "red";
+      ctx.fill();
+      ctx.stroke();
     }
   }
 
@@ -55,7 +59,7 @@ TODO
     div.style.height = "20px";
     div.style.background = "#ffffff";
     div.style.color = "black";
-    div.innerHTML = "<a href='https://bugs.openjdk.org/browse/" + issue.name
+    div.innerHTML = "<a href='https://bugs.openjdk.org/browse/JDK-" + issue.name
                     + "' style='font-size:14px' target='_blank'>"
                     + issue.name + ": " + issue.desc + "</a>";
     if (issue.pr != "") {
@@ -87,30 +91,25 @@ TODO
     graph_document.body.appendChild(div);
 
     var universe =  graph_document.createElement('universe');
-    universe.id = "universe"
+    universe.id = "universe";
     div.appendChild(universe);
 
     var canv = graph_document.createElement('canvas');
     canv.id = 'mainCanvas';
     universe.appendChild(canv);
 
-    issues = [
-      {name: "JDK-8346993",
-       desc:"Refactor VectorNode::make",
-       pr: "https://github.com/openjdk/jdk/pull/22917",
-       x: 10, y: 10, type: "review"},
-      {name: "JDK-8343685",
-       desc:"Revactor VPointer with MemPointer",
-       pr: "https://github.com/openjdk/jdk/pull/21926",
-       x: 910, y: 950, type: "open"},
-      //{name: "JDK-",
-      // desc:"",
-      // pr: "https://github.com/openjdk/jdk/pull/",
-      // jira: "https://bugs.openjdk.org/browse/JDK-",
-      // x: 10, y: 20, type: "open"},
-    ];
+    issues = {};
 
-    for (issue of issues) {
+    issues["8346993"] = {desc:"Refactor VectorNode::make",
+                         pr: "https://github.com/openjdk/jdk/pull/22917",
+                         x: 20, y: 10, type: "review"};
+    issues["8343685"] = {desc:"Revactor VPointer with MemPointer",
+                         pr: "https://github.com/openjdk/jdk/pull/21926",
+                         x: 200, y: 50, type: "open",
+                         edges: [{name: "8346993", color: "black"}]};
+
+    for (const [name, issue] of Object.entries(issues)) {
+      issue.name = name;
       div = addIssue(issue)
       issue.div = div;
     }
