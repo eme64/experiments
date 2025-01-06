@@ -8,18 +8,17 @@ function updateMax(x,y) {
   maxY = Math.max(maxY,y);
 }
 
-function myFunction() {
- document.getElementById("demo").innerHTML = "Paragraph changed.";
-}
-
 function updateCanvas(overFocusId) {
   var universe = document.getElementById("universe")
   var canv = document.getElementById("mainCanvas")
-  canv.width = maxX+100;
-  canv.height = maxY+100;
+  canv.width = maxX + 405;
+  canv.height = maxY + 25;
 
   var ctx = canv.getContext("2d");
   ctx.clearRect(0, 0, canv.width, canv.height);
+  ctx.rect(0, 0, canv.width, canv.height);
+  ctx.fillStyle = "#eeeeee";
+  ctx.fill();
 
   console.log("update");
   for (issue of issues) {
@@ -37,7 +36,7 @@ function updateCanvas(overFocusId) {
 function addIssue(issue) {
   var universe = document.getElementById("universe")
   var div = document.createElement("myelement");
-  div.style.background = "#eeeeee";
+  div.style.background = "#ffffff";
   div.style.color = "black";
   div.innerHTML = "<a href='https://bugs.openjdk.org/browse/" + issue.name
                   + "' style='font-size:14px' target='_blank'>"
@@ -66,7 +65,8 @@ function mouseOverIssue(id) {
 function init() {
   var universe =  document.createElement('universe');
   universe.id = "universe"
-  document.body.appendChild(universe);
+  graph_div = document.getElementById("issue_graph")
+  graph_div.appendChild(universe);
 
   var canv = document.createElement('canvas');
   canv.id = 'mainCanvas';
@@ -80,7 +80,7 @@ function init() {
     {name: "JDK-8343685",
      desc:"Revactor VPointer with MemPointer",
      pr: "https://github.com/openjdk/jdk/pull/21926",
-     x: 10, y: 50, type: "open"},
+     x: 910, y: 950, type: "open"},
     //{name: "JDK-",
     // desc:"",
     // pr: "https://github.com/openjdk/jdk/pull/",
