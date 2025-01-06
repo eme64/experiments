@@ -140,7 +140,7 @@ TODO
     var x = 0;
     var y = 0;
 
-    // -------------------------- General Bugs
+    // -------------------------- General Bugs / RFE
     x = 20;
     y = 120;
     issues["8298935"] = {desc:"WR: independence bug",
@@ -171,8 +171,22 @@ TODO
                          x: x, y: y, color: bug_done, radius: 5,
                          edges: []};
     y += 25;
+    issues["8308917"] = {desc:"assert before a bailout",
+                         assigned:"Emanuel",
+                         jdk: 21,
+                         pr: "https://github.com/openjdk/jdk/pull/14168",
+                         x: x, y: y, color: rfe_done, radius: 3,
+                         edges: []};
+    y += 25;
 
 
+    issues["8309204"] = {desc:"Obsolete DoReserveCopyInSuperWord",
+                         assigned:"Emanuel",
+                         jdk: 22,
+                         pr: "https://github.com/openjdk/jdk/pull/16022",
+                         x: x, y: y, color: rfe_done, radius: 5,
+                         edges: []};
+    y += 25;
     issues["8316679"] = {desc:"WR: load/store order",
                          assigned:"Emanuel",
                          jdk: 22,
@@ -359,13 +373,6 @@ TODO
                          pr: "https://github.com/openjdk/jdk/pull/21630",
                          x: x+20, y: y, color: rfe_review, radius: 5,
                          edges: [{name: "8344085", color: "black"}]};
-    y += 25;
-    //issues[""] = {desc:"",
-    //                     assigned:"Emanuel",
-    //                     jdk: 0,
-    //                     pr: "https://github.com/openjdk/jdk/pull/",
-    //                     x: x, y: y, color: bug_done, radius: 5,
-    //                     edges: [{name: "8344085", color: "black"}]};
 
 
     y += 25;
@@ -376,20 +383,6 @@ TODO
                          x: x, y: y, color: rfe_open, radius: 5,
                          edges: []};
     y += 25;
-
-
-
-
-
-    //issues[""] = {desc:"",
-    //                     assigned:"Emanuel",
-    //                     jdk: 0,
-    //                     pr: "https://github.com/openjdk/jdk/pull/",
-    //                     x: x, y: y, color: bug_done, radius: 5,
-    //                     edges: []};
-
-
-
 
     //issues[""] = {desc:"",
     //                     assigned:"Emanuel",
@@ -441,7 +434,7 @@ TODO
 
 
     // -------------------------- CMove
-    x = 950;
+    x = 1000;
     y = 120;
 
     issues["8306302"] = {desc:"assert with CMove: fix and refactor",
@@ -477,9 +470,16 @@ TODO
 
 
 
-    // -------------------------- AlignVector
-    x = 1400;
+    // -------------------------- Alignment / AlignVector
+    x = 1500;
     y = 120;
+    issues["8308606"] = {desc:"Remove some alignment checks",
+                         assigned:"Emanuel",
+                         jdk: 22,
+                         pr: "https://github.com/openjdk/jdk/pull/14096",
+                         x: x, y: y, color: rfe_done, radius: 5,
+                         edges: []};
+    y += 25;
     issues["8310190"] = {desc:"AlignVector broken",
                          assigned:"Emanuel",
                          jdk: 23,
@@ -559,6 +559,41 @@ TODO
                          x: x, y: y, color: bug_open, radius: 5,
                          edges: []};
     y += 25;
+    issues["8344424"] = {desc:"Some loop do not vectorize after Lilliput",
+                         assigned:"-",
+                         jdk: 0,
+                         pr: "",
+                         x: x, y: y, color: bug_open, radius: 3,
+                         edges: []};
+    y += 25;
+
+
+    // -------------------------- MemorySegment
+    x = 2000;
+    y = 120;
+
+    issues["8286197"] = {desc:"Optimize MemorySegment in int loop",
+                         assigned:"Roland",
+                         jdk: 20,
+                         pr: "https://github.com/openjdk/jdk/pull/8555",
+                         x: x, y: y, color: rfe_done, radius: 5,
+                         edges: []};
+    y += 25;
+
+
+    // --------------------------- TODO
+    x = 500;
+    y = 1000;
+
+    issues["8324751"] = {desc:"AliasingAnalysis",
+                         assigned:"Emanuel",
+                         jdk: 0,
+                         pr: "",
+                         x: x, y: y, color: rfe_open, radius: 7,
+                         edges: []};
+    y += 25;
+
+
 
 
     for (const [name, issue] of Object.entries(issues)) {
