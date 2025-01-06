@@ -150,6 +150,13 @@ TODO
                          x: x, y: y, color: bug_done, radius: 7,
                          edges: []};
     y += 25;
+    issues["8305055"] = {desc:"IR railures on aarch64 (collateral damage)",
+                         assigned:"Fei Gao",
+                         jdk: 21,
+                         pr: "https://github.com/openjdk/jdk/pull/",
+                         x: x+20, y: y, color: bug_done, radius: 3,
+                         edges: [{name: "8298935", color: "red"}]};
+    y += 25;
     issues["8304720"] = {desc:"WR: schedule using dependency-graph",
                          assigned:"Emanuel",
                          jdk: 21,
@@ -164,6 +171,8 @@ TODO
                          x: x, y: y, color: bug_done, radius: 5,
                          edges: []};
     y += 25;
+
+
     issues["8316679"] = {desc:"WR: load/store order",
                          assigned:"Emanuel",
                          jdk: 22,
@@ -178,6 +187,8 @@ TODO
                          x: x, y: y, color: bug_done, radius: 3,
                          edges: []};
     y += 25;
+
+
     issues["8310190"] = {desc:"AlignVector broken",
                          assigned:"Emanuel",
                          jdk: 23,
@@ -185,6 +196,106 @@ TODO
                          x: x, y: y, color: bug_done, radius: 7,
                          edges: []};
     y += 25;
+    issues["8323577"] = {desc:"Add IR rules back from JDK-8305055",
+                         assigned:"Emanuel",
+                         jdk: 23,
+                         pr: "https://github.com/openjdk/jdk/pull/17369",
+                         x: x+20, y: y, color: rfe_done, radius: 3,
+                         edges: [{name: "8310190", color: "blue"}]};
+    y += 25;
+    issues["8323641"] = {desc:"TestAlignVectorFuzzer.java timed out",
+                         assigned:"Emanuel",
+                         jdk: 23,
+                         pr: "https://github.com/openjdk/jdk/pull/17389",
+                         x: x+20, y: y, color: bug_done, radius: 3,
+                         edges: [{name: "8310190", color: "red"}]};
+
+    // Refactorings
+    issues["8324750"] = {desc:"Refactor: renaming",
+                         assigned:"Emanuel",
+                         jdk: 23,
+                         pr: "https://github.com/openjdk/jdk/pull/17583",
+                         x: x, y: y, color: rfe_done, radius: 3,
+                         edges: []};
+    y += 25;
+    issues["8324752"] = {desc:"Refactor: rm SuperWordRTDepCheck",
+                         assigned:"Emanuel",
+                         jdk: 23,
+                         pr: "https://github.com/openjdk/jdk/pull/17585",
+                         x: x, y: y, color: rfe_done, radius: 3,
+                         edges: []};
+    y += 25;
+    issues["8317572"] = {desc:"Refactor: TraceAutoVectorization",
+                         assigned:"Emanuel",
+                         jdk: 23,
+                         pr: "https://github.com/openjdk/jdk/pull/17586",
+                         x: x, y: y, color: rfe_done, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8324765"] = {desc:"Refactor: rm dead code (Extract)",
+                         assigned:"Emanuel",
+                         jdk: 23,
+                         pr: "https://github.com/openjdk/jdk/pull/17589",
+                         x: x, y: y, color: rfe_done, radius: 3,
+                         edges: []};
+    y += 25;
+    issues["8324775"] = {desc:"Refactor: visited set (no reuse)",
+                         assigned:"Emanuel",
+                         jdk: 23,
+                         pr: "https://github.com/openjdk/jdk/pull/17594",
+                         x: x, y: y, color: rfe_done, radius: 3,
+                         edges: []};
+    y += 25;
+    issues["8324794"] = {desc:"Refactor: unrolling_analysis/reductions",
+                         assigned:"Emanuel",
+                         jdk: 23,
+                         pr: "https://github.com/openjdk/jdk/pull/17604",
+                         x: x, y: y, color: rfe_done, radius: 3,
+                         edges: []};
+    y += 25;
+    issues["8324890"] = {desc:"Refactor: VLoop",
+                         assigned:"Emanuel",
+                         jdk: 23,
+                         pr: "https://github.com/openjdk/jdk/pull/17624",
+                         x: x, y: y, color: rfe_done, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8325064"] = {desc:"Refactor: construct_bb",
+                         assigned:"Emanuel",
+                         jdk: 23,
+                         pr: "https://github.com/openjdk/jdk/pull/17657",
+                         x: x, y: y, color: rfe_done, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8325252"] = {desc:"Refactor: packset",
+                         assigned:"Emanuel",
+                         jdk: 23,
+                         pr: "https://github.com/openjdk/jdk/pull/18276",
+                         x: x, y: y, color: rfe_done, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8325589"] = {desc:"Refactor: VLoopAnalyzer submodules",
+                         assigned:"Emanuel",
+                         jdk: 23,
+                         pr: "https://github.com/openjdk/jdk/pull/17800",
+                         x: x, y: y, color: rfe_done, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8325651"] = {desc:"Refactor: dependency-graph",
+                         assigned:"Emanuel",
+                         jdk: 23,
+                         pr: "https://github.com/openjdk/jdk/pull/17812",
+                         x: x, y: y, color: rfe_done, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8326962"] = {desc:"Cache VPointer",
+                         assigned:"Emanuel",
+                         jdk: 23,
+                         pr: "https://github.com/openjdk/jdk/pull/18577",
+                         x: x, y: y, color: rfe_done, radius: 3,
+                         edges: []};
+
+
     issues["8332905"] = {desc:"bad AD with RotateRightV",
                          assigned:"Emanuel",
                          jdk: 23,
