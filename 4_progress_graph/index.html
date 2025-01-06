@@ -187,6 +187,13 @@ TODO
                          x: x, y: y, color: bug_done, radius: 3,
                          edges: []};
     y += 25;
+    issues["8312332"] = {desc:"Refactor: SWPointer -> VPointer",
+                         assigned:"Fei Gao",
+                         jdk: 22,
+                         pr: "https://github.com/openjdk/jdk/pull/15013",
+                         x: x, y: y, color: rfe_done, radius: 5,
+                         edges: []};
+    y += 25;
 
 
     issues["8310190"] = {desc:"AlignVector broken",
@@ -211,82 +218,90 @@ TODO
                          edges: [{name: "8310190", color: "red"}]};
 
     // Refactorings
+    y += 25;
+    issues["8315361"] = {desc:"Refactor: VLoopAnalyzer",
+                         assigned:"Emanuel",
+                         jdk: 23,
+                         pr: "",
+                         x: x, y: y, color: rfe_done, radius: 3,
+                         edges: []};
+    y += 25;
     issues["8324750"] = {desc:"Refactor: renaming",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17583",
-                         x: x, y: y, color: rfe_done, radius: 3,
-                         edges: []};
+                         x: x+20, y: y, color: rfe_done, radius: 3,
+                         edges: [{name: "8315361", color: "black"}]};
     y += 25;
     issues["8324752"] = {desc:"Refactor: rm SuperWordRTDepCheck",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17585",
-                         x: x, y: y, color: rfe_done, radius: 3,
-                         edges: []};
+                         x: x+20, y: y, color: rfe_done, radius: 3,
+                         edges: [{name: "8315361", color: "black"}]};
     y += 25;
     issues["8317572"] = {desc:"Refactor: TraceAutoVectorization",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17586",
-                         x: x, y: y, color: rfe_done, radius: 5,
-                         edges: []};
+                         x: x+20, y: y, color: rfe_done, radius: 5,
+                         edges: [{name: "8315361", color: "black"}]};
     y += 25;
     issues["8324765"] = {desc:"Refactor: rm dead code (Extract)",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17589",
-                         x: x, y: y, color: rfe_done, radius: 3,
-                         edges: []};
+                         x: x+20, y: y, color: rfe_done, radius: 3,
+                         edges: [{name: "8315361", color: "black"}]};
     y += 25;
     issues["8324775"] = {desc:"Refactor: visited set (no reuse)",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17594",
-                         x: x, y: y, color: rfe_done, radius: 3,
-                         edges: []};
+                         x: x+20, y: y, color: rfe_done, radius: 3,
+                         edges: [{name: "8315361", color: "black"}]};
     y += 25;
     issues["8324794"] = {desc:"Refactor: unrolling_analysis/reductions",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17604",
-                         x: x, y: y, color: rfe_done, radius: 3,
-                         edges: []};
+                         x: x+20, y: y, color: rfe_done, radius: 3,
+                         edges: [{name: "8315361", color: "black"}]};
     y += 25;
     issues["8324890"] = {desc:"Refactor: VLoop",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17624",
-                         x: x, y: y, color: rfe_done, radius: 5,
-                         edges: []};
+                         x: x+20, y: y, color: rfe_done, radius: 5,
+                         edges: [{name: "8315361", color: "black"}]};
     y += 25;
     issues["8325064"] = {desc:"Refactor: construct_bb",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17657",
-                         x: x, y: y, color: rfe_done, radius: 5,
-                         edges: []};
+                         x: x+20, y: y, color: rfe_done, radius: 5,
+                         edges: [{name: "8315361", color: "black"}]};
     y += 25;
     issues["8325252"] = {desc:"Refactor: packset",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/18276",
-                         x: x, y: y, color: rfe_done, radius: 5,
-                         edges: []};
+                         x: x+20, y: y, color: rfe_done, radius: 5,
+                         edges: [{name: "8315361", color: "black"}]};
     y += 25;
     issues["8325589"] = {desc:"Refactor: VLoopAnalyzer submodules",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17800",
-                         x: x, y: y, color: rfe_done, radius: 5,
-                         edges: []};
+                         x: x+20, y: y, color: rfe_done, radius: 5,
+                         edges: [{name: "8315361", color: "black"}]};
     y += 25;
     issues["8325651"] = {desc:"Refactor: dependency-graph",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17812",
-                         x: x, y: y, color: rfe_done, radius: 5,
-                         edges: []};
+                         x: x+20, y: y, color: rfe_done, radius: 5,
+                         edges: [{name: "8315361", color: "black"}]};
     y += 25;
     issues["8326962"] = {desc:"Cache VPointer",
                          assigned:"Emanuel",
@@ -370,6 +385,50 @@ TODO
                          assigned:"Emanuel",
                          jdk: 0,
                          pr: "",
+                         x: x, y: y, color: rfe_open, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8344085"] = {desc:"Performance small loops",
+                         assigned:"Emanuel",
+                         jdk: 0,
+                         pr: "",
+                         x: x, y: y, color: rfe_open, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8344118"] = {desc:"JMH VectorThroughputForIterationCount",
+                         assigned:"Emanuel",
+                         jdk: 24,
+                         pr: "https://github.com/openjdk/jdk/pull/22070",
+                         x: x, y: y, color: rfe_done, radius: 5,
+                         edges: [{name: "8344085", color: "black"}]};
+    y += 25;
+    issues["8307084"] = {desc:"Use drain-loop more often",
+                         assigned:"Fei Gao",
+                         jdk: 0,
+                         pr: "",
+                         x: x+20, y: y, color: rfe_review, radius: 5,
+                         edges: [{name: "8344085", color: "black"}]};
+    y += 25;
+    issues["8342692"] = {desc:"No loop-nest for small loops",
+                         assigned:"Roland",
+                         jdk: 0,
+                         pr: "https://github.com/openjdk/jdk/pull/21630",
+                         x: x+20, y: y, color: rfe_review, radius: 5,
+                         edges: [{name: "8344085", color: "black"}]};
+    y += 25;
+    //issues[""] = {desc:"",
+    //                     assigned:"Emanuel",
+    //                     jdk: 0,
+    //                     pr: "https://github.com/openjdk/jdk/pull/",
+    //                     x: x, y: y, color: bug_done, radius: 5,
+    //                     edges: [{name: "8344085", color: "black"}]};
+
+
+    y += 25;
+    issues["8308994"] = {desc:"Post-loop vectorization (masked)",
+                         assigned:"Fei Gao",
+                         jdk: 0,
+                         pr: "https://github.com/openjdk/jdk/pull/14581",
                          x: x, y: y, color: rfe_open, radius: 5,
                          edges: []};
     y += 25;
