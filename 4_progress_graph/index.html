@@ -33,6 +33,23 @@ TODO
     ctx.fillStyle = "#eeeeee";
     ctx.fill();
 
+    // Draw edges
+    for (const [name, issue] of Object.entries(issues)) {
+      for (var edge of issue.edges) {
+        var issue2 = issues[edge.name];
+        var x1 = issue.x - 10;
+        var y1 = issue.y + 10;
+        var x2 = issue2.x - 10;
+        var y2 = issue2.y + 10;
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.bezierCurveTo(x1, y1-50, x2, y2+50, x2, y2);
+        ctx.strokeStyle = edge.color;
+        ctx.stroke();
+      }
+    }
+
+    // Draw issues
     for (const [name, issue] of Object.entries(issues)) {
       var div = issue.div;
 
@@ -102,7 +119,8 @@ TODO
 
     issues["8346993"] = {desc:"Refactor VectorNode::make",
                          pr: "https://github.com/openjdk/jdk/pull/22917",
-                         x: 20, y: 10, type: "review"};
+                         x: 20, y: 10, type: "review",
+                         edges: []};
     issues["8343685"] = {desc:"Revactor VPointer with MemPointer",
                          pr: "https://github.com/openjdk/jdk/pull/21926",
                          x: 200, y: 50, type: "open",
