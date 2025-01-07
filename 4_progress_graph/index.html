@@ -13,6 +13,7 @@ TODO
   maxY = 100;
 
   issues = {}
+  tags = []
 
   graph_document = undefined;
 
@@ -108,6 +109,24 @@ TODO
     updateCanvas(id);
   }
 
+  function addTag(tag) {
+    var universe = graph_document.getElementById('universe')
+    var div = graph_document.createElement("myelement");
+    div.style.position = "absolute";
+    div.style.width = "400px";
+    div.style.height = "20px";
+    div.style.background = "#ffffff";
+    div.style.color = "black";
+    div.innerHTML += "<blub style='font-size:14px;" + tag.style + "'> " + tag.text + "</blub>";
+
+    div.style.left = tag.x+"px";
+    div.style.top  = tag.y+"px";
+    updateMax(tag.x, tag.y);
+
+    universe.appendChild(div);
+    return div;
+  }
+
   function init() {
     var graph_frame = document.getElementById("issue_graph")
     graph_document = graph_frame.contentWindow.document
@@ -124,6 +143,7 @@ TODO
     universe.appendChild(canv);
 
     issues = {};
+    tags = [];
 
     var bug_open   = {dot: "#ff0000", background: "#ff9999", highlight: "#ff8888"}
     var bug_done   = {dot: "#ff9999", background: "#ffeeee", highlight: "#ffdddd"}
@@ -147,7 +167,10 @@ TODO
 
     // -------------------------- General Bugs / RFE
     x = 20;
-    y = 120;
+    y = 10;
+    tags.push({text: "General Bugs and RFEs",
+               x: x-20, y: y, style: "color=black;font-weight:bold"});
+    y += 25;
     issues["8298935"] = {desc:"WR: independence bug",
                          assigned:"Emanuel",
                          jdk: 21,
@@ -399,14 +422,6 @@ TODO
 
 
     y += 25;
-    issues["8302662"] = {desc:"Extract element from last iteration",
-                         assigned:"Jatin",
-                         jdk: 0,
-                         pr: "",
-                         x: x, y: y, color: rfe_open, radius: 5,
-                         edges: []};
-    y += 25;
-    //TODO comment: after Cost-Model ?
     issues["8344085"] = {desc:"Performance small loops",
                          assigned:"Emanuel",
                          jdk: 0,
@@ -503,12 +518,21 @@ TODO
                          edges: []};
     y += 25;
     // TODO cost-model
-
-
+    issues["8302662"] = {desc:"Extract element from last iteration",
+                         assigned:"Jatin",
+                         jdk: 0,
+                         pr: "",
+                         x: x, y: y, color: rfe_open, radius: 5,
+                         edges: []};
+    y += 25;
+    //TODO comment: after Cost-Model ?
 
     // -------------------------- Reductions
     x = 500;
-    y = 120;
+    y = 10;
+    tags.push({text: "Reductions",
+               x: x-20, y: y, style: "color=black;font-weight:bold"});
+    y += 25;
     issues["8302652"] = {desc:"Move unordered reduction out of loop",
                          assigned:"Emanuel",
                          jdk: 21,
@@ -613,8 +637,10 @@ TODO
 
     // -------------------------- CMove
     x = 1000;
-    y = 120;
-
+    y = 10;
+    tags.push({text: "CMove",
+               x: x-20, y: y, style: "color=black;font-weight:bold"});
+    y += 25;
     issues["8306302"] = {desc:"assert with CMove: fix and refactor",
                          assigned:"Emanuel",
                          jdk: 21,
@@ -648,7 +674,10 @@ TODO
 
     // -------------------------- Alignment / AlignVector
     x = 1500;
-    y = 120;
+    y = 10;
+    tags.push({text: "Alignment",
+               x: x-20, y: y, style: "color=black;font-weight:bold"});
+    y += 25;
     issues["8308606"] = {desc:"Remove some alignment checks",
                          assigned:"Emanuel",
                          jdk: 22,
@@ -753,8 +782,10 @@ TODO
 
     // -------------------------- MemorySegment
     x = 2000;
-    y = 120;
-
+    y = 10;
+    tags.push({text: "MemorySegment: Unsafe, native, VPointer",
+               x: x-20, y: y, style: "color=black;font-weight:bold"});
+    y += 25;
     issues["8286197"] = {desc:"Optimize MemorySegment in int loop",
                          assigned:"Roland",
                          jdk: 20,
@@ -811,8 +842,10 @@ TODO
 
     // -------------------------- Testing / Benchmarking
     x = 2500;
-    y = 120;
-
+    y = 10;
+    tags.push({text: "Testing: Tests and Testing Frameworks",
+               x: x-20, y: y, style: "color=black;font-weight:bold"});
+    y += 25;
     issues["8310308"] = {desc:"IR Framework: check vector size/type",
                          assigned:"Emanuel",
                          jdk: 22,
@@ -946,6 +979,10 @@ TODO
       issue.name = name;
       div = addIssue(issue)
       issue.div = div;
+    }
+
+    for (var tag of tags) {
+      tag.div = addTag(tag);
     }
 
     updateCanvas()
