@@ -42,11 +42,18 @@ TODO
         var y1 = issue.y + 10;
         var x2 = issue2.x - 10;
         var y2 = issue2.y + 10;
-        ctx.beginPath();
-        ctx.moveTo(x1, y1);
-        ctx.bezierCurveTo(x1, y1-30, x2, y2+30, x2, y2);
-        ctx.strokeStyle = edge.color;
-        ctx.stroke();
+
+        switch (edge.style) {
+          case "parent":
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.bezierCurveTo(x2, y1, x2, y1, x2, y2);
+            ctx.strokeStyle = edge.color;
+            ctx.stroke();
+            break;
+          default:
+            console.log("edge style not handled: " + edge.style);
+        }
       }
     }
 
@@ -133,7 +140,7 @@ TODO
                          assigned:"Emanuel",
                          pr: "https://github.com/openjdk/jdk/pull/21926",
                          x: 200, y: 50, color: bug_done, radius: 7,
-                         edges: [{name: "8346993", color: "black"}]};
+                         edges: [{style: "parent", name: "8346993", color: "black"}]};
 
 
 
@@ -155,7 +162,7 @@ TODO
                          jdk: 21,
                          pr: "https://github.com/openjdk/jdk/pull/",
                          x: x+20, y: y, color: bug_done, radius: 3,
-                         edges: [{name: "8298935", color: "red"}]};
+                         edges: [{style: "parent", name: "8298935", color: "red"}]};
     y += 25;
     issues["8304720"] = {desc:"WR: schedule using dependency-graph",
                          assigned:"Emanuel",
@@ -222,84 +229,84 @@ TODO
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17583",
                          x: x+20, y: y, color: rfe_done, radius: 3,
-                         edges: [{name: "8315361", color: "black"}]};
+                         edges: [{style: "parent", name: "8315361", color: "black"}]};
     y += 25;
     issues["8324752"] = {desc:"Refactor: rm SuperWordRTDepCheck",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17585",
                          x: x+20, y: y, color: rfe_done, radius: 3,
-                         edges: [{name: "8315361", color: "black"}]};
+                         edges: [{style: "parent", name: "8315361", color: "black"}]};
     y += 25;
     issues["8317572"] = {desc:"Refactor: TraceAutoVectorization",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17586",
                          x: x+20, y: y, color: rfe_done, radius: 5,
-                         edges: [{name: "8315361", color: "black"}]};
+                         edges: [{style: "parent", name: "8315361", color: "black"}]};
     y += 25;
     issues["8324765"] = {desc:"Refactor: rm dead code (Extract)",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17589",
                          x: x+20, y: y, color: rfe_done, radius: 3,
-                         edges: [{name: "8315361", color: "black"}]};
+                         edges: [{style: "parent", name: "8315361", color: "black"}]};
     y += 25;
     issues["8324775"] = {desc:"Refactor: visited set (no reuse)",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17594",
                          x: x+20, y: y, color: rfe_done, radius: 3,
-                         edges: [{name: "8315361", color: "black"}]};
+                         edges: [{style: "parent", name: "8315361", color: "black"}]};
     y += 25;
     issues["8324794"] = {desc:"Refactor: unrolling_analysis/reductions",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17604",
                          x: x+20, y: y, color: rfe_done, radius: 3,
-                         edges: [{name: "8315361", color: "black"}]};
+                         edges: [{style: "parent", name: "8315361", color: "black"}]};
     y += 25;
     issues["8324890"] = {desc:"Refactor: VLoop",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17624",
                          x: x+20, y: y, color: rfe_done, radius: 5,
-                         edges: [{name: "8315361", color: "black"}]};
+                         edges: [{style: "parent", name: "8315361", color: "black"}]};
     y += 25;
     issues["8325064"] = {desc:"Refactor: construct_bb",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17657",
                          x: x+20, y: y, color: rfe_done, radius: 5,
-                         edges: [{name: "8315361", color: "black"}]};
+                         edges: [{style: "parent", name: "8315361", color: "black"}]};
     y += 25;
     issues["8325252"] = {desc:"Refactor: packset",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/18276",
                          x: x+20, y: y, color: rfe_done, radius: 5,
-                         edges: [{name: "8315361", color: "black"}]};
+                         edges: [{style: "parent", name: "8315361", color: "black"}]};
     y += 25;
     issues["8325589"] = {desc:"Refactor: VLoopAnalyzer submodules",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17800",
                          x: x+20, y: y, color: rfe_done, radius: 5,
-                         edges: [{name: "8315361", color: "black"}]};
+                         edges: [{style: "parent", name: "8315361", color: "black"}]};
     y += 25;
     issues["8325651"] = {desc:"Refactor: dependency-graph",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17812",
                          x: x+20, y: y, color: rfe_done, radius: 5,
-                         edges: [{name: "8315361", color: "black"}]};
+                         edges: [{style: "parent", name: "8315361", color: "black"}]};
     y += 25;
     issues["8327978"] = {desc:"compile time regression (traversal)",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/18532",
                          x: x+40, y: y, color: bug_done, radius: 3,
-                         edges: [{name: "8325651", color: "red"}]};
+                         edges: [{style: "parent", name: "8325651", color: "red"}]};
     y += 25;
     issues["8326962"] = {desc:"Cache VPointer",
                          assigned:"Emanuel",
@@ -357,22 +364,22 @@ TODO
                          assigned:"Emanuel",
                          jdk: 24,
                          pr: "https://github.com/openjdk/jdk/pull/22070",
-                         x: x, y: y, color: rfe_done, radius: 5,
-                         edges: [{name: "8344085", color: "black"}]};
+                         x: x+20, y: y, color: rfe_done, radius: 5,
+                         edges: [{style: "parent", name: "8344085", color: "black"}]};
     y += 25;
     issues["8307084"] = {desc:"Use drain-loop more often",
                          assigned:"Fei Gao",
                          jdk: 0,
                          pr: "",
                          x: x+20, y: y, color: rfe_review, radius: 5,
-                         edges: [{name: "8344085", color: "black"}]};
+                         edges: [{style: "parent", name: "8344085", color: "black"}]};
     y += 25;
     issues["8342692"] = {desc:"No loop-nest for small loops",
                          assigned:"Roland",
                          jdk: 0,
                          pr: "https://github.com/openjdk/jdk/pull/21630",
                          x: x+20, y: y, color: rfe_review, radius: 5,
-                         edges: [{name: "8344085", color: "black"}]};
+                         edges: [{style: "parent", name: "8344085", color: "black"}]};
 
 
     y += 25;
@@ -407,14 +414,14 @@ TODO
                          jdk: 22,
                          pr: "https://github.com/openjdk/jdk/pull/15654",
                          x: x+20, y: y, color: bug_done, radius: 5,
-                         edges: [{name: "8302652", color: "red"}]};
+                         edges: [{style: "parent", name: "8302652", color: "red"}]};
     y += 25;
     issues["8310130"] = {desc:"unordered reduction: bad assert",
                          assigned:"Emanuel",
                          jdk: 22,
                          pr: "https://github.com/openjdk/jdk/pull/14494",
                          x: x+20, y: y, color: bug_done, radius: 3,
-                         edges: [{name: "8302652", color: "red"}]};
+                         edges: [{style: "parent", name: "8302652", color: "red"}]};
     y += 25;
     issues["8307513"] = {desc:"Intrinsify Math.min/max(long, long)",
                          assigned:"Galder",
@@ -449,14 +456,14 @@ TODO
                          jdk: 21,
                          pr: "https://github.com/openjdk/jdk/pull/14268",
                          x: x+20, y: y, color: bug_done, radius: 3,
-                         edges: [{name: "8306302", color: "red"}]};
+                         edges: [{style: "parent", name: "8306302", color: "red"}]};
     y += 25;
     issues["8313720"] = {desc:"WR: CMove",
                          assigned:"Emanuel",
                          jdk: 22,
                          pr: "https://github.com/openjdk/jdk/pull/15274",
                          x: x+20, y: y, color: bug_done, radius: 3,
-                         edges: [{name: "8306302", color: "red"}]};
+                         edges: [{style: "parent", name: "8306302", color: "red"}]};
     y += 25;
 
 
@@ -492,14 +499,14 @@ TODO
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17369",
                          x: x+20, y: y, color: rfe_done, radius: 3,
-                         edges: [{name: "8310190", color: "blue"}]};
+                         edges: [{style: "parent", name: "8310190", color: "blue"}]};
     y += 25;
     issues["8323641"] = {desc:"TestAlignVectorFuzzer.java timed out",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "https://github.com/openjdk/jdk/pull/17389",
                          x: x+20, y: y, color: bug_done, radius: 3,
-                         edges: [{name: "8310190", color: "red"}]};
+                         edges: [{style: "parent", name: "8310190", color: "red"}]};
     y += 25;
 
     issues["8325155"] = {desc:"Remove alignment-boundaries",
@@ -514,42 +521,42 @@ TODO
                          jdk: 0,
                          pr: "https://github.com/openjdk/jdk/pull/19115",
                          x: x+20, y: y, color: rfe_done, radius: 3,
-                         edges: [{name: "8325155", color: "blue"}]};
+                         edges: [{style: "parent", name: "8325155", color: "blue"}]};
     y += 25;
     issues["8333876"] = {desc:"assert replaced with check",
                          assigned:"Emanuel",
                          jdk: 24,
                          pr: "https://github.com/openjdk/jdk/pull/19736",
                          x: x+20, y: y, color: bug_done, radius: 3,
-                         edges: [{name: "8325155", color: "red"}]};
+                         edges: [{style: "parent", name: "8325155", color: "red"}]};
     y += 25;
     issues["8334228"] = {desc:"assert: fix sorting",
                          assigned:"Emanuel",
                          jdk: 0,
                          pr: "https://github.com/openjdk/jdk/pull/19696",
                          x: x+20, y: y, color: bug_done, radius: 5,
-                         edges: [{name: "8325155", color: "red"}]};
+                         edges: [{style: "parent", name: "8325155", color: "red"}]};
     y += 25;
     issues["8334431"] = {desc:"perf-regr: store-to-load-fwd failure",
                          assigned:"Emanuel",
                          jdk: 0,
                          pr: "https://github.com/openjdk/jdk/pull/21521",
                          x: x+20, y: y, color: bug_done, radius: 5,
-                         edges: [{name: "8325155", color: "red"}]};
+                         edges: [{style: "parent", name: "8325155", color: "red"}]};
     y += 25;
     issues["8335006"] = {desc:"JMH VectorStoreToLoadForwarding.java",
                          assigned:"Emanuel",
                          jdk: 24,
                          pr: "https://github.com/openjdk/jdk/pull/",
                          x: x+40, y: y, color: rfe_done, radius: 5,
-                         edges: [{name: "8334431", color: "blue"}]};
+                         edges: [{style: "parent", name: "8334431", color: "blue"}]};
     y += 25;
     issues["8334083"] = {desc:"test bug with AlignVector",
                          assigned:"Emanuel",
                          jdk: 24,
                          pr: "https://github.com/openjdk/jdk/pull/19801",
                          x: x+20, y: y, color: bug_done, radius: 3,
-                         edges: [{name: "8325155", color: "red"}]};
+                         edges: [{style: "parent", name: "8325155", color: "red"}]};
     y += 25;
 
     issues["8323582"] = {desc:"AlignVector misaligned native memory",
