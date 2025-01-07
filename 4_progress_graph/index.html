@@ -127,10 +127,12 @@ TODO
 
     var bug_open   = {dot: "#ff0000", background: "#ff9999", highlight: "#ff8888"}
     var bug_done   = {dot: "#ff9999", background: "#ffeeee", highlight: "#ffdddd"}
-    var rfe_open   = {dot: "#999999", background: "#cccccc", highlight: "#cccccc"}
+    var rfe_open   = {dot: "#999999", background: "#cccccc", highlight: "#dddddd"}
     var rfe_review = {dot: "#0000ff", background: "#bbbbff", highlight: "#aaaaff"}
     var rfe_done   = {dot: "#9999ff", background: "#eeeeff", highlight: "#ddddff"}
 
+    var priority   = {dot: "#ff9900", background: "#ffeecc", highlight: "#ffffdd"}
+    //var rfe_green   = {dot: "#00ff00", background: "#ccffcc", highlight: "#ddffdd"}
 
     var x = 0;
     var y = 0;
@@ -915,7 +917,7 @@ TODO
                          assigned:"Emanuel",
                          jdk: 0,
                          pr: "",
-                         x: x, y: y, color: rfe_open, radius: 7,
+                         x: x, y: y, color: priority, radius: 7,
                          edges: []};
     y += 25;
     // TODO comment etc
@@ -925,7 +927,7 @@ TODO
                          assigned:"Emanuel",
                          jdk: 0,
                          pr: "https://github.com/openjdk/jdk/pull/20964",
-                         x: x, y: y, color: rfe_open, radius: 7,
+                         x: x, y: y, color: priority, radius: 7,
                          edges: []};
     y += 25;
     // TODO comment etc
