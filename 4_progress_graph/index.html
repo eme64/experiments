@@ -224,13 +224,22 @@ TODO
                          x: x, y: y, color: rfe_done, radius: 5,
                          edges: []};
 
+    y += 25;
+    issues["8325159"] = {desc:"Add AutoVectorize to CITime",
+                         assigned:"Emanuel",
+                         jdk: 23,
+                         pr: "https://github.com/openjdk/jdk/pull/17683",
+                         x: x, y: y, color: rfe_done, radius: 3,
+                         edges: []};
+
+
     // Refactorings
     y += 25;
     issues["8315361"] = {desc:"Refactor: VLoopAnalyzer",
                          assigned:"Emanuel",
                          jdk: 23,
                          pr: "",
-                         x: x, y: y, color: rfe_done, radius: 3,
+                         x: x, y: y, color: rfe_done, radius: 7,
                          edges: []};
     y += 25;
     issues["8324750"] = {desc:"Refactor: renaming",
@@ -289,6 +298,13 @@ TODO
                          x: x+20, y: y, color: rfe_done, radius: 5,
                          edges: [{style: "parent", name: "8315361", color: "black"}]};
     y += 25;
+    issues["8325541"] = {desc:"Refactor: filter / split",
+                         assigned:"Emanuel",
+                         jdk: 23,
+                         pr: "https://github.com/openjdk/jdk/pull/17785",
+                         x: x+20, y: y, color: rfe_done, radius: 5,
+                         edges: [{style: "parent", name: "8315361", color: "black"}]};
+    y += 25;
     issues["8325252"] = {desc:"Refactor: packset",
                          assigned:"Emanuel",
                          jdk: 23,
@@ -316,6 +332,13 @@ TODO
                          pr: "https://github.com/openjdk/jdk/pull/18532",
                          x: x+40, y: y, color: bug_done, radius: 3,
                          edges: [{style: "parent", name: "8325651", color: "red"}]};
+    y += 25;
+    issues["8326139"] = {desc:"split packs to fit use/def packs, etc.",
+                         assigned:"Emanuel",
+                         jdk: 23,
+                         pr: "https://github.com/openjdk/jdk/pull/17848",
+                         x: x, y: y, color: rfe_done, radius: 5,
+                         edges: []};
     y += 25;
     issues["8326962"] = {desc:"Cache VPointer",
                          assigned:"Emanuel",
@@ -345,15 +368,38 @@ TODO
                          pr: "https://github.com/openjdk/jdk/pull/18485",
                          x: x, y: y, color: bug_done, radius: 3,
                          edges: []};
-
-
     y += 25;
-    issues["8340010"] = {desc:"Fix tests after Lilliput",
+
+
+    issues["8332163"] = {desc:"VTransformGraph",
                          assigned:"Emanuel",
                          jdk: 24,
-                         pr: "https://github.com/openjdk/jdk/pull/22199",
-                         x: x, y: y, color: bug_done, radius: 3,
+                         pr: "https://github.com/openjdk/jdk/pull/19719",
+                         x: x, y: y, color: rfe_done, radius: 7,
                          edges: []};
+    y += 25;
+    issues["8333647"] = {desc:"More PopulateIndex tests",
+                         assigned:"Emanuel",
+                         jdk: 24,
+                         pr: "https://github.com/openjdk/jdk/pull/19558",
+                         x: x+20, y: y, color: rfe_done, radius: 3,
+                         edges: [{style: "parent", name: "8332163", color: "black"}]};
+    y += 25;
+    issues["8333684"] = {desc:"Preparatory refactorings for JDK-8332163",
+                         assigned:"Emanuel",
+                         jdk: 24,
+                         pr: "https://github.com/openjdk/jdk/pull/19573",
+                         x: x+20, y: y, color: rfe_done, radius: 3,
+                         edges: [{style: "parent", name: "8332163", color: "black"}]};
+    y += 25;
+    issues["8333713"] = {desc:"Cleanup in vectornode.cpp/hpp",
+                         assigned:"Emanuel",
+                         jdk: 24,
+                         pr: "https://github.com/openjdk/jdk/pull/19575",
+                         x: x+20, y: y, color: rfe_done, radius: 3,
+                         edges: [{style: "parent", name: "8332163", color: "black"}]};
+
+
     y += 25;
     issues["8302662"] = {desc:"Extract element from last iteration",
                          assigned:"Emanuel",
@@ -391,6 +437,20 @@ TODO
                          edges: [{style: "parent", name: "8344085", color: "black"}]};
 
 
+    y += 25;
+    issues["8329077"] = {desc:"Missing vectorization for MoveF2I etc",
+                         assigned:"Galder",
+                         jdk: 0,
+                         pr: "",
+                         x: x, y: y, color: rfe_open, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8332878"] = {desc:"missing vectorization with PopulateIndex L/F/D",
+                         assigned:"Emanuel",
+                         jdk: 0,
+                         pr: "",
+                         x: x, y: y, color: rfe_open, radius: 5,
+                         edges: []};
     y += 25;
     issues["8308994"] = {desc:"Post-loop vectorization (masked)",
                          assigned:"Fei Gao",
@@ -431,6 +491,14 @@ TODO
                          pr: "https://github.com/openjdk/jdk/pull/14494",
                          x: x+20, y: y, color: bug_done, radius: 3,
                          edges: [{style: "parent", name: "8302652", color: "red"}]};
+    y += 25;
+    issues["8340272"] = {desc:"JMH benchmark for reductions",
+                         assigned:"Emanuel",
+                         jdk: 24,
+                         pr: "https://github.com/openjdk/jdk/pull/21032",
+                         x: x, y: y, color: rfe_done, radius: 5,
+                         edges: []};
+    // TODO comment
     y += 25;
     issues["8307513"] = {desc:"Intrinsify Math.min/max(long, long)",
                          assigned:"Galder",
@@ -474,9 +542,6 @@ TODO
                          x: x+20, y: y, color: bug_done, radius: 3,
                          edges: [{style: "parent", name: "8306302", color: "red"}]};
     y += 25;
-
-
-
     //issues[""] = {desc:"",
     //                     assigned:"Emanuel",
     //                     jdk: 0,
@@ -567,6 +632,13 @@ TODO
                          x: x+20, y: y, color: bug_done, radius: 3,
                          edges: [{style: "parent", name: "8325155", color: "red"}]};
     y += 25;
+    issues["8335628"] = {desc:"Cleanup longer_type_for_conversion",
+                         assigned:"Emanuel",
+                         jdk: 24,
+                         pr: "https://github.com/openjdk/jdk/pull/20009",
+                         x: x+20, y: y, color: rfe_done, radius: 3,
+                         edges: [{style: "parent", name: "8325155", color: "blue"}]};
+    y += 25;
 
     issues["8323582"] = {desc:"AlignVector misaligned native memory",
                          assigned:"Emanuel",
@@ -595,11 +667,105 @@ TODO
                          x: x, y: y, color: rfe_done, radius: 5,
                          edges: []};
     y += 25;
+    issues["8300257"] = {desc:"Improve SWPointer: multiple invar",
+                         assigned:"Roland",
+                         jdk: 21,
+                         pr: "https://github.com/openjdk/jdk/pull/12942",
+                         x: x, y: y, color: rfe_done, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8329273"] = {desc:"Some basic MemorySegment IR tests",
+                         assigned:"Emanuel",
+                         jdk: 23,
+                         pr: "https://github.com/openjdk/jdk/pull/18535",
+                         x: x, y: y, color: rfe_done, radius: 5,
+                         edges: []};
+
+    y += 25;
+    issues["8331659"] = {desc:"missing optimizations in TestMemorySegment.java",
+                         assigned:"Emanuel",
+                         jdk: 0,
+                         pr: "",
+                         x: x, y: y, color: rfe_open, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8327209"] = {desc:"missing RCE for checkIndexL with int index etc.",
+                         assigned:"Emanuel",
+                         jdk: 0,
+                         pr: "",
+                         x: x, y: y, color: rfe_open, radius: 5,
+                         edges: []};
+    y += 25;
+
+
+    // -------------------------- Testing / Benchmarking
+    x = 2500;
+    y = 120;
+
+    issues["8310308"] = {desc:"IR Framework: check vector size/type",
+                         assigned:"Emanuel",
+                         jdk: 22,
+                         pr: "https://github.com/openjdk/jdk/pull/14539",
+                         x: x, y: y, color: rfe_done, radius: 7,
+                         edges: []};
+    y += 25;
+    issues["8337221"] = {desc:"CompileFramework test library",
+                         assigned:"Emanuel",
+                         jdk: 24,
+                         pr: "https://github.com/openjdk/jdk/pull/20184",
+                         x: x, y: y, color: rfe_done, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8342387"] = {desc:"Refactor TestDependencyOffsets.java (CompF)",
+                         assigned:"Emanuel",
+                         jdk: 24,
+                         pr: "https://github.com/openjdk/jdk/pull/21541",
+                         x: x+20, y: y, color: rfe_done, radius: 5,
+                         edges: [{style: "parent", name: "8337221", color: "blue"}]};
+    y += 25;
+    issues["8340010"] = {desc:"Fix tests after Lilliput",
+                         assigned:"Emanuel",
+                         jdk: 24,
+                         pr: "https://github.com/openjdk/jdk/pull/22199",
+                         x: x, y: y, color: bug_done, radius: 3,
+                         edges: []};
+    y += 25;
+    issues["8346106"] = {desc:"Verify.checkEQ for result verification",
+                         assigned:"Emanuel",
+                         jdk: 25,
+                         pr: "https://github.com/openjdk/jdk/pull/22715",
+                         x: x, y: y, color: rfe_done, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8346107"] = {desc:"Generators: random lib for testing",
+                         assigned:"Theo",
+                         jdk: 0,
+                         pr: "",
+                         x: x, y: y, color: rfe_open, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8344942"] = {desc:"Template-Based Testing Framework",
+                         assigned:"Emanuel",
+                         jdk: 0,
+                         pr: "https://github.com/openjdk/jdk/pull/22483",
+                         x: x, y: y, color: rfe_open, radius: 7,
+                         edges: []};
+    y += 25;
+    // TODO comment?
+
+
+    issues["8310523"] = {desc:"IR tests for RotateRight/LeftV",
+                         assigned:"Emanuel",
+                         jdk: 0,
+                         pr: "",
+                         x: x, y: y, color: rfe_open, radius: 3,
+                         edges: []};
+    y += 25;
 
 
     // --------------------------- TODO
     x = 500;
-    y = 1000;
+    y = 1300;
 
     issues["8324751"] = {desc:"AliasingAnalysis",
                          assigned:"Emanuel",
@@ -608,8 +774,7 @@ TODO
                          x: x, y: y, color: rfe_open, radius: 7,
                          edges: []};
     y += 25;
-
-
+    // TODO comment etc
 
 
     for (const [name, issue] of Object.entries(issues)) {
