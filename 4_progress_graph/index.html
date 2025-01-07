@@ -436,6 +436,13 @@ TODO
                          x: x+20, y: y, color: rfe_review, radius: 5,
                          edges: [{style: "parent", name: "8344085", color: "black"}]};
 
+    y += 25;
+    issues["8299808"] = {desc:"Investigate perf difference to ArrayFill",
+                         assigned:"Emanuel",
+                         jdk: 0,
+                         pr: "",
+                         x: x, y: y, color: rfe_open, radius: 5,
+                         edges: []};
 
     y += 25;
     issues["8329077"] = {desc:"Missing vectorization for MoveF2I etc",
@@ -459,6 +466,37 @@ TODO
                          x: x, y: y, color: rfe_open, radius: 5,
                          edges: []};
     y += 25;
+    issues["8309908"] = {desc:"Improve packing strategy (lookahead?)",
+                         assigned:"Emanuel",
+                         jdk: 0,
+                         pr: "",
+                         x: x, y: y, color: rfe_open, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8303113"] = {desc:"Improve packing to remove _do_vector_loop",
+                         assigned:"Emanuel",
+                         jdk: 0,
+                         pr: "",
+                         x: x+20, y: y, color: rfe_open, radius: 5,
+                         edges: [{style: "parent", name: "8309908", color: "black"}]};
+    y += 25;
+    issues["8342095"] = {desc:"Improve vectorization of subword casts",
+                         assigned:"Jasmine",
+                         jdk: 0,
+                         pr: "",
+                         x: x, y: y, color: rfe_open, radius: 5,
+                         edges: []};
+    y += 25;
+    // TODO comment
+
+    issues["8328678"] = {desc:"Some hand-unrolld loops do not vectorize well",
+                         assigned:"Emanuel",
+                         jdk: 0,
+                         pr: "",
+                         x: x, y: y, color: rfe_open, radius: 5,
+                         edges: []};
+    y += 25;
+
 
     //issues[""] = {desc:"",
     //                     assigned:"Emanuel",
@@ -514,6 +552,35 @@ TODO
                          x: x, y: y, color: rfe_open, radius: 5,
                          edges: []};
     y += 25;
+    issues["8343597"] = {desc:"RelaxedMath for faster float reductions",
+                         assigned:"Emanuel",
+                         jdk: 0,
+                         pr: "https://github.com/openjdk/jdk/pull/21895",
+                         x: x, y: y, color: rfe_open, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8345044"] = {desc:"Report: simple sum does not vectorize",
+                         assigned:"Galder",
+                         jdk: 0,
+                         pr: "",
+                         x: x, y: y, color: rfe_open, radius: 5,
+                         edges: []};
+    // TODO comment
+    y += 25;
+    issues["8345107"] = {desc:"Vectorize polynomial reductions (hash)",
+                         assigned:"Emanuel",
+                         jdk: 0,
+                         pr: "",
+                         x: x, y: y, color: rfe_open, radius: 5,
+                         edges: []};
+    y += 25;
+    issues["8345549"] = {desc:"Vectorize prefix-sum",
+                         assigned:"Emanuel",
+                         jdk: 0,
+                         pr: "",
+                         x: x, y: y, color: rfe_open, radius: 5,
+                         edges: []};
+    y += 25;
 
 
 
@@ -541,6 +608,14 @@ TODO
                          pr: "https://github.com/openjdk/jdk/pull/15274",
                          x: x+20, y: y, color: bug_done, radius: 3,
                          edges: [{style: "parent", name: "8306302", color: "red"}]};
+    y += 25;
+    issues["8308841"] = {desc:"Vectorize integer CMove",
+                         assigned:"Emanuel",
+                         jdk: 0,
+                         pr: "",
+                         x: x, y: y, color: rfe_open, radius: 5,
+                         edges: []};
+
     y += 25;
     //issues[""] = {desc:"",
     //                     assigned:"Emanuel",
@@ -737,7 +812,7 @@ TODO
                          x: x, y: y, color: rfe_done, radius: 5,
                          edges: []};
     y += 25;
-    issues["8346107"] = {desc:"Generators: random lib for testing",
+    issues["8346107"] = {desc:"Generators: random distributions for testing",
                          assigned:"Theo",
                          jdk: 0,
                          pr: "",
