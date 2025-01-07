@@ -5,6 +5,7 @@
 
 TODO
 
+<p>Navigate: [+/-] Zoom</p>
 <iframe id = "issue_graph" height="800" width="100%" resize="both" overflow="auto">
 </iframe>
 
@@ -14,6 +15,8 @@ TODO
 
   issues = {}
   tags = []
+
+  graph_zoom = 1.0;
 
   graph_document = undefined;
 
@@ -131,12 +134,34 @@ TODO
     var graph_frame = document.getElementById("issue_graph")
     graph_document = graph_frame.contentWindow.document
 
+    graph_document.body.style="margin:0;padding:0";
+
     var div = graph_document.createElement("div");
     graph_document.body.appendChild(div);
 
     var universe =  graph_document.createElement('universe');
     universe.id = "universe";
     div.appendChild(universe);
+
+    var key_listener = (event) => {
+      switch (event.key) {
+        case "+":
+          graph_zoom *= 1.05;
+          graph_zoom = Math.min(1.0, graph_zoom);
+          universe.style = "zoom:" + graph_zoom;
+          console.log("plus");
+          break;
+        case "-":
+          graph_zoom /= 1.05;
+          graph_zoom = Math.max(0.1, graph_zoom);
+          universe.style = "zoom:" + graph_zoom;
+          break;
+        default:
+          console.log("keydown " + event.key + " " + event.code);
+      }
+    };
+    document.addEventListener("keydown", key_listener);
+    graph_document.addEventListener("keydown", key_listener);
 
     var canv = graph_document.createElement('canvas');
     canv.id = 'mainCanvas';
@@ -166,7 +191,7 @@ TODO
     y += 25;
 
     // -------------------------- General Bugs / RFE
-    x = 20;
+    x = 30;
     y = 10;
     tags.push({text: "General Bugs and RFEs",
                x: x-20, y: y, style: "color=black;font-weight:bold"});
@@ -528,7 +553,7 @@ TODO
     //TODO comment: after Cost-Model ?
 
     // -------------------------- Reductions
-    x = 500;
+    x = 530;
     y = 10;
     tags.push({text: "Reductions",
                x: x-20, y: y, style: "color=black;font-weight:bold"});
@@ -636,7 +661,7 @@ TODO
 
 
     // -------------------------- CMove
-    x = 1000;
+    x = 1030;
     y = 10;
     tags.push({text: "CMove",
                x: x-20, y: y, style: "color=black;font-weight:bold"});
@@ -673,7 +698,7 @@ TODO
 
 
     // -------------------------- Alignment / AlignVector
-    x = 1500;
+    x = 1530;
     y = 10;
     tags.push({text: "Alignment",
                x: x-20, y: y, style: "color=black;font-weight:bold"});
@@ -781,7 +806,7 @@ TODO
 
 
     // -------------------------- MemorySegment
-    x = 2000;
+    x = 2030;
     y = 10;
     tags.push({text: "MemorySegment: Unsafe, native, VPointer",
                x: x-20, y: y, style: "color=black;font-weight:bold"});
@@ -841,7 +866,7 @@ TODO
 
 
     // -------------------------- Testing / Benchmarking
-    x = 2500;
+    x = 2530;
     y = 10;
     tags.push({text: "Testing: Tests and Testing Frameworks",
                x: x-20, y: y, style: "color=black;font-weight:bold"});
@@ -943,7 +968,7 @@ TODO
 
 
     // --------------------------- TODO
-    x = 500;
+    x = 530;
     y = 1300;
 
     issues["8324751"] = {desc:"AliasingAnalysis",
